@@ -1,9 +1,11 @@
 import os
-
 from celery import Celery
+from .settings import base
 
-# set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'homey.settings.prod')
+if base.DEBUG==False:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'homey.settings.prod')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'homey.settings.local')
 
 app = Celery('homey',
              broker='redis://',

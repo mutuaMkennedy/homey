@@ -1,0 +1,70 @@
+# Version of docker compose to use
+version: '3.9'
+
+# services we want to run
+services:
+  app:
+    restart: always
+    # image name and a tag name
+    image: app:homey
+    container_name: homey_django_container
+    build: .
+    ports:
+      - "8080:8080"
+    links:
+      - postgres:postgres
+      - redis:redis
+    volumes:
+      - static-data:/vol/web
+    environment:
+      - DEBUG=${DEBUG}
+      - SECRET_KEY=${SECRET_KEY}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+    command: >
+      sh -c " python manage.py migrate &&
+              python manage.py runserver 0.0.0.0:8000
+            "
+    depends_on:
+      - postgres
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes:
+      - static-data:/vol/static
+    links:
+      - app:app
+    depends_on:
+      - app
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_PASSWORD==${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+
+  redis:
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+
+volumes:
+  static-data:
+  pgdata:
+  redisdata:

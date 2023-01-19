@@ -1,7 +1,5 @@
 import os
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+from decouple import config
 from datetime import timedelta
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
@@ -9,15 +7,18 @@ from sentry_sdk.integrations.django import DjangoIntegration
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ib)4kavk+9ds#_!v8y5*qoy2@)g1gfa@y2u(4tpvej$feb!!oj'
+SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost','165.227.185.180','127.0.0.1','rehgiendev2.remote.moe',
-                '207.154.205.115','rehgien.com', 'www.rehgien.com']
+ALLOWED_HOSTS = ['localhost','165.227.185.180','127.0.0.1','homey.fly.dev']
+
+CSRF_TRUSTED_ORIGINS = ["https://homey.fly.dev"]  
 
 ADMINS = [('Mutua', 'do-not-reply@rehgien.com')]
 # Application definition
@@ -208,8 +209,8 @@ STATICFILES_DIRS = (
     # os.path.join(BASE_DIR, 'chat-frontend/build/static'),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets_new')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, '/vol/web/static')
+MEDIA_ROOT = os.path.join(BASE_DIR, '/vol/web/media')
 
 # COMPRESS_ENABLED = True
 
@@ -373,14 +374,14 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SIGNUP_FORM_CLASS = 'profiles.forms.profile_form'
 
 
-TWILIO_ACCOUNT_SID = 'AC1db0e8cfbae1e3b9b5834772c0ef8d6c'
-TWILIO_API_KEY = 'SK5c969e58ab96a19249489add62911305'
-TWILIO_API_SECRET = 'qDSWimtxgzelWceywCF2Sbcslr7s1o7P'
-TWILIO_CHAT_SERVICE_SID = 'ISe0ef1fd1e4f444aba9ccc09b28047ab5'
-TWILIO_AUTH_TOKEN = '7f70419841a1632045d657089acd65c1'
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
+TWILIO_API_KEY = config('TWILIO_API_KEY')
+TWILIO_API_SECRET = config('TWILIO_API_SECRET')
+TWILIO_CHAT_SERVICE_SID = config('TWILIO_CHAT_SERVICE_SID')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
 
-STREAM_API_KEY = 'krfpqyntmyk8'
-STREAM_API_SECRET = 'ynfguub9ds3qufavnzkdnvetrzrftqvs9punjq6zu7jwavcncshceyc8byp93kyq'
+STREAM_API_KEY = config('STREAM_API_KEY')
+STREAM_API_SECRET = config('STREAM_API_SECRET')
 
 # CELERY STUFF
 BROKER_URL =  'redis://localhost:6379'
@@ -402,6 +403,6 @@ CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers.DatabaseScheduler'
 # }
 
 # Analytic services
-CLICKY_SITE_ID = '101303494'
-GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = 'G-65Q435FWHZ'
-HOTJAR_SITE_ID = '2365112'
+CLICKY_SITE_ID = config('CLICKY_SITE_ID')
+GOOGLE_ANALYTICS_GTAG_PROPERTY_ID = config('GOOGLE_ANALYTICS_GTAG_PROPERTY_ID')
+HOTJAR_SITE_ID = config('HOTJAR_SITE_ID')

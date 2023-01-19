@@ -1,4 +1,5 @@
 amqp==5.0.5
+asgiref==3.6.0
 billiard==3.6.3.0
 boto3==1.17.85
 botocore==1.20.85
@@ -63,6 +64,7 @@ PyJWT==1.7.1
 pymongo==3.11.4
 python-crontab==2.5.1
 python-dateutil==2.8.0
+python-decouple==3.7
 python-mimeparse==1.6.0
 python3-openid==3.1.0
 pytz==2018.7
