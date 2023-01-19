@@ -1,6 +1,14 @@
 import os
+from .settings import base
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'homey.settings.prod') #change this to match environment
+ #change this to match environment
+
+application = get_wsgi_application()
+
+if base.DEBUG==False:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'homey.settings.prod')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'homey.settings.local')
 
 application = get_wsgi_application()
