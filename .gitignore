@@ -6,6 +6,7 @@ __pycache__
 db.sqlite3
 media
 assets_new
+/data
 
 # Backup files #
 *.bak
