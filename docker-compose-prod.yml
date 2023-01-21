@@ -15,15 +15,10 @@ services:
       - postgres:postgres
       - redis:redis
     volumes:
+    # persist static files beyond the life of the container
       - static-data:/vol/web
-    environment:
-      - DEBUG=${DEBUG}
-      - SECRET_KEY=${SECRET_KEY}
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
+    env_file:
+      - ./.env
     command: >
       sh -c " python manage.py migrate &&
               python manage.py runserver 0.0.0.0:8000
@@ -45,14 +40,15 @@ services:
 
   postgres:
     restart: always
-    image: postgres:latest
+    build: ./postgres/
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
+      # persist db data beyond the life of the container
       - pgdata:/var/lib/postgresql/data/
     environment:
       - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_PASSWORD==${DB_PASSWORD}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_USER=${DB_USER}
 
   redis:
