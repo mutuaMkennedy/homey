@@ -1,22 +1,22 @@
 FROM nginxinc/nginx-unprivileged:1-alpine
 LABEL maintainer="www.kennedymutua.crunchgarage.com"
 
-COPY sites-enabled/ /etc/nginx/sites-enabled
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
 COPY ./run.sh /run.sh
-
-ENV LISTEN_PORT=8000
-ENV APP_HOST=app
-ENV APP_PORT=9000
 
 USER root
 
 RUN mkdir -p /vol/static && \
+    mkdir -p /vol/media && \
     chmod 755 /vol/static && \
-    touch /etc/nginx/conf.d/default.conf && \
-    chown nginx:nginx /etc/nginx/conf.d/default.conf && \
+    chmod 755 /vol/media && \
+    chown nginx:nginx /etc/nginx/conf.d/nginx.conf && \
+    # chown -R nginx:nginx /etc/nginx
     chmod +x /run.sh
 
 VOLUME /vol/static
+VOLUME /vol/media
 
 USER nginx
 

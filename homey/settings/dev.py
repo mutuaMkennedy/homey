@@ -2,6 +2,10 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from homey.settings.base import *
+from glob import glob
+
+GDAL_LIBRARY_PATH=glob('/usr/lib/libgdal.so.*')[0]
+GEOS_LIBRARY_PATH=glob('/usr/lib/libgeos_c.so.*')[0]
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
