@@ -10,7 +10,7 @@ services:
     container_name: homey_django_container
     build: .
     expose:
-      - 8000
+      - 9000
     links:
       - postgres:postgres
       - redis:redis
@@ -35,7 +35,7 @@ services:
     container_name: homey_nginx_container
     build: ./nginx/
     ports:
-      - "80:80"
+      - "80:8000"
     volumes:
       - static_volume:/vol/static
       - media_volume:/vol/media
