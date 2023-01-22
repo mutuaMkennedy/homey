@@ -16,7 +16,13 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
 
-ALLOWED_HOSTS = ['localhost','165.227.185.180','127.0.0.1','homey.fly.dev']
+ALLOWED_HOSTS = []
+ALLOWED_HOSTS.extend(
+    filter(
+        None,
+        os.environ.get('ALLOWED_HOSTS', '').split(','),
+    )
+)
 
 CSRF_TRUSTED_ORIGINS = ["https://homey.fly.dev"]  
 
