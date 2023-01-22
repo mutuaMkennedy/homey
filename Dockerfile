@@ -47,7 +47,7 @@ RUN set -ex && \
 
 COPY . .
 ENV PATH="/scripts:/py/bin:$PATH"
-USER app
+USER root
 
 CMD [ "run.sh"]
 # CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "homey.wsgi"]
