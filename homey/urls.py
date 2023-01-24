@@ -48,7 +48,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', views.homepage, name='homepage'),
+    url(r'^$', views.property_homepage, name='homepage'),
     path('location/', include('location.urls')),
     path('listings/', include('listings.urls')),
     path('mortgage/', include('mortgage.urls')),

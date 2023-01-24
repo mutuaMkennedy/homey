@@ -5,7 +5,7 @@ from . import views
 app_name = 'listings'
 
 urlpatterns = [
-	url(r'^$', views.homepage, name='homepage'),
+	url(r'^$', views.property_homepage, name='homepage'),
 	path('shops/categories/', views.shop_category_homepage, name='shop_category'),
 	path('property/home/', views.property_homepage, name='property_homepage'),
 	re_path(r'^property/add/$', views.ListPropertyWizardView.as_view(views.FORMS), name='property_listing_form'),
