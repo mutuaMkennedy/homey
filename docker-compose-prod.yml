@@ -6,7 +6,7 @@ services:
   app:
     restart: always
     # image name and a tag name
-    image: app:homey
+    image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:app
     container_name: homey_django_container
     build: .
     expose:
@@ -31,7 +31,7 @@ services:
   nginx:
     restart: always
     # image name and a tag name
-    image: nginx:homey
+    image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:nginx
     container_name: homey_nginx_container
     build: ./nginx/
     ports:
@@ -47,7 +47,7 @@ services:
   postgres:
     restart: always
     # image name and a tag name
-    image: postgres:homey
+    image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:postgres
     container_name: homey_postgres_container
     build: ./postgres/
     ports:
@@ -62,8 +62,8 @@ services:
 
   redis:
     restart: always
+    image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:redis
     container_name: homey_redis_container
-    image: redis:latest
     ports:
       - "6379:6379"
     volumes:
