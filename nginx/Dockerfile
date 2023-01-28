@@ -7,9 +7,6 @@ COPY ./run.sh /run.sh
 
 USER root
 
-RUN apk update && \
-    apk add certbot && \ 
-    apk add --upgrade certbot-nginx
 
 RUN mkdir -p /vol/static && \
     mkdir -p /vol/media && \
@@ -21,6 +18,6 @@ RUN mkdir -p /vol/static && \
 VOLUME /vol/static
 VOLUME /vol/media
 
-# USER nginx
+USER nginx
 
 CMD ["/run.sh"]
