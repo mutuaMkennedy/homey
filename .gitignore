@@ -8,6 +8,7 @@ media
 assets_new
 /data
 
+.env.dev
 # Backup files #
 *.bak
 

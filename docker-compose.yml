@@ -17,7 +17,7 @@ services:
       - .:/app # usefull in dev mode: Allow us to make changes to the code and have the updates reflect in the container.  
       - ./data/web:/vol/web/
     env_file:
-      - ./.env
+      - ./.env.dev
     command: >
       sh -c " python manage.py migrate &&
               python manage.py runserver 0.0.0.0:8080

@@ -7,17 +7,20 @@ COPY ./run.sh /run.sh
 
 USER root
 
+RUN apk update && \
+    apk add certbot && \ 
+    apk add --upgrade certbot-nginx
+
 RUN mkdir -p /vol/static && \
     mkdir -p /vol/media && \
     chmod 755 /vol/static && \
     chmod 755 /vol/media && \
     chown nginx:nginx /etc/nginx/conf.d/nginx.conf && \
-    # chown -R nginx:nginx /etc/nginx
     chmod +x /run.sh
 
 VOLUME /vol/static
 VOLUME /vol/media
 
-USER nginx
+# USER nginx
 
 CMD ["/run.sh"]
