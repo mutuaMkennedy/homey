@@ -43,7 +43,7 @@ services:
     depends_on:
       - app
 
-  certbot:
+  cert:
     restart: always
     # image name and a tag name
     image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:certbot
