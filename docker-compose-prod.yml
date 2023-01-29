@@ -4,7 +4,7 @@ version: '3.9'
 # services we want to run
 services:
   app:
-    restart: always
+    restart: unless-stopped
     # image name and a tag name
     image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:app
     container_name: homey_django_container
@@ -24,7 +24,7 @@ services:
       - postgres
 
   nginx:
-    restart: always
+    restart: unless-stopped
     # image name and a tag name
     image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:nginx
     container_name: homey_nginx_container
@@ -44,7 +44,7 @@ services:
       - app
 
   postgres:
-    restart: always
+    restart: unless-stopped
     # image name and a tag name
     image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:postgres
     container_name: homey_postgres_container
@@ -60,7 +60,7 @@ services:
       - POSTGRES_USER=${DB_USER}
 
   redis:
-    restart: always
+    restart: unless-stopped
     image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:redis
     build: ./docker-services/redis/
     container_name: homey_redis_container
