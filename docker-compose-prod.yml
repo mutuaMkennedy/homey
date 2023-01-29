@@ -43,21 +43,6 @@ services:
     depends_on:
       - app
 
-  cert:
-    restart: always
-    # image name and a tag name
-    image: 759451633485.dkr.ecr.us-east-1.amazonaws.com/homey:certbot
-    container_name: homey_certbot_container
-    build: ./certbot/
-    volumes:
-      - /var/www/html:/var/www/html
-      - /etc/letsencrypt:/etc/letsencrypt
-      - /var/lib/letsencrypt:/var/lib/letsencrypt
-    # environment:
-    #   - EMAIL=${ACME_DEFAULT_EMAIL}
-    #   - DOMAIN=${DOMAIN}
-
-
   postgres:
     restart: always
     # image name and a tag name
