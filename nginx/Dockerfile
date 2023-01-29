@@ -7,7 +7,7 @@ COPY ./run.sh /run.sh
 
 USER root
 
-RUN apk add certbot && apk add python3-certbot-nginx
+RUN apk add --no-cache certbot && apk add certbot-nginx
 
 RUN mkdir -p /vol/static && \
     mkdir -p /vol/media && \
