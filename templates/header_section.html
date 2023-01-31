@@ -5,7 +5,7 @@
     <div class="nav-wrapper">
       <a id="logo-wrapper" href="{% url 'homepage'%}" class="brand-logo left" style="height:60px;">
         <div class="base_lgo">
-          <img src="{% static 'img/RehgienLogoW.png'%}" alt="rehgien logo">
+          <img src="{% static 'img/RehgienLogoW.png'%}" alt="Homey logo">
         </div>
       </a>
       <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -152,9 +152,9 @@
         <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:pro_join_landing' %}"><button class="join_as_pro" type="button" name="button">Join as a pro</button></a></li>
         {% endif %}
         {% if request.user.is_authenticated and request.user.user_type == 'PRO' %}
-        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}"><button class="gToRgnProBtnNav" type="button" name="button">Rehgien Pro</button></a></li>
+        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}"><button class="gToRgnProBtnNav" type="button" name="button">Homey Pro</button></a></li>
         {% else %}
-        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}">Rehgien Pro</a></li>
+        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}">Homey Pro</a></li>
         {% endif %}
         {% if not request.user.is_authenticated %}
         <li><a href="{% url 'account_login' %}" class="modal-trigger"> Sign In</a></li>
@@ -252,7 +252,7 @@
                       <li><a href="{% url 'rehgien_pro:dashboard_home'%}">Dashboard</a></li>
                       {% endif %}
                       <li><a href="{% url 'profiles:account_settings'%}">Account Settings</a></li>
-                      <li><a href="{% url 'homepage' %}">Go to Rehgien</a></li>
+                      <li><a href="{% url 'homepage' %}">Go to Homey</a></li>
                       <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
                     </ul>
                 </div>
@@ -275,7 +275,7 @@
             </div>
             <div class="brand-logo center Mnav-logoWrapper">
               <a href="{% url 'listings:homepage'%}">
-                <img src="{% static 'img/RehgienLogoBlack.png'%}" alt="rehgien logo">
+                <img src="{% static 'img/RehgienLogoBlack.png'%}" alt="Homey logo">
               </a>
             </div>
       </li>
@@ -414,7 +414,7 @@
         </div>
       </li>
       <li><a href="{% url 'markets:job_post_home'%}"><p><i class="material-icons">post_add</i>Post a Job</p></a></li>
-      <li><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}"><p><i class="material-icons">business_center</i>Rehgien Pro</p></a></li>
+      <li><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}"><p><i class="material-icons">business_center</i>Homey Pro</p></a></li>
       <li class="active">
         <div class="collapsible-header  Mnav-collapsible-header"><p><i class="material-icons">upgrade</i>Are you a pro?</p><span class="material-icons">expand_more</span></div>
         <div class="collapsible-body Mnav-collapsible-body">

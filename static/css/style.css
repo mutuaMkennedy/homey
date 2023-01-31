@@ -870,7 +870,7 @@ main {
     justify-content:center;
 }
 .base_lgo img {
-    width:80px;
+    width:100px;
     height:auto;
     display:flex;
     align-items:center;
@@ -1113,11 +1113,11 @@ main {
 }
 
 .loginLogo {
-    height: 50px;
-    width: 100px;
+    height: 60px;
+    width: 130px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     margin-left: auto;
     margin-right: auto;
     margin-top: 25px;

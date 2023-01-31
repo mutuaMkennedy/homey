@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags%}
-{% block head_title %}<title>Become a partner|Rehgien partners</title>{% endblock %}
+{% block head_title %}<title>Become a partner|Homey partners</title>{% endblock %}
 {% block header %}{% include 'header_section.html' %}{% endblock%}
 {% block content %}
 
@@ -12,7 +12,7 @@
               <div class="col s12 _ppshiHdTx">
                   <h1>Lets build the future of property service access together.</h1>
                   <p>
-                    At rehgien we believe in team work and collaboration - thats why we would love to partner with you. Join us and
+                    At Homey we believe in team work and collaboration - thats why we would love to partner with you. Join us and
                     get exclusive offers and matches with serious clients.
                   </p>
               </div>
@@ -24,9 +24,9 @@
     <div class="container">
         <div class="row">
             <div class="prtnsCHead">
-                <h2>Partner Programs on Rehgien</h2>
+                <h2>Partner Programs on Homey</h2>
                 <p>
-                  Whatever line of business you do Rehgien is ready to work with you.
+                  Whatever line of business you do Homey is ready to work with you.
                 </p>
             </div>
             <div class="prtnCardWrp">
@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class="PartnerSection">
-        <h2 id="partnerForm"> Become a Rehgien Partner.</h2>
+        <h2 id="partnerForm"> Become a Homey Partner.</h2>
         <p>Tell us about your business to apply</p>
         <div class="partnerSignup">
             <form action="{% url 'partnership:partner_program_home'%}" method="post">
@@ -134,7 +134,7 @@
                   <br>
                   <br>
                   <div class="ptnrSignupFieldWrp">
-                    <h6>Tell us more about why you want to partner with Rehgien?</h6>
+                    <h6>Tell us more about why you want to partner with Homey?</h6>
                     {{partnership_form.message}}
                     {{ partnership_form.message.errors }}
                   </div>

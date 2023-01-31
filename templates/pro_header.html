@@ -5,7 +5,7 @@
     <div class="nav-wrapper">
       <a id="logo-wrapper" href="{% url 'rehgien_pro:rehgien_pro_homepage'%}" class="brand-logo left" style="height:60px;">
         <div class="base_lgo">
-          <img src="{% static 'img/RehgienProLogoW.png'%}" alt="rehgien pro logo">
+          <img src="{% static 'img/RehgienLogoW.png'%}" alt="Homey pro logo">
         </div>
       </a>
       <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -105,7 +105,7 @@
                               <div class="pro_sltn_title">
                                 Product updates
                               </div>
-                              <p>Get the latest news about new Rehgien features and updates.</p>
+                              <p>Get the latest news about new Homey features and updates.</p>
                           </div>
                       </div>
                     </a>
@@ -122,7 +122,7 @@
                               <div class="pro_sltn_title">
                                 Tutorials
                               </div>
-                              <p>Learn how to use rehgien features and tools. </p>
+                              <p>Learn how to use Homey features and tools. </p>
                           </div>
                       </div>
                     </a>
@@ -139,9 +139,9 @@
         <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:pro_join_landing' %}"><button class="join_as_pro" type="button" name="button">Join as a pro</button></a></li>
         {% endif %}
         {% if request.user.is_authenticated and request.user.user_type == 'PRO' %}
-        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}"><button class="gToRgnProBtnNav" type="button" name="button">Rehgien Pro</button></a></li>
+        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}"><button class="gToRgnProBtnNav" type="button" name="button">Homey Pro</button></a></li>
         {% else %}
-        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}">Rehgien Pro</a></li>
+        <li class="hide-on-med-and-down"><a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}">Homey Pro</a></li>
         {% endif %}
         {% if not request.user.is_authenticated %}
         <li><a href="{% url 'account_login' %}" class="modal-trigger"> Sign In</a></li>
@@ -239,7 +239,7 @@
                       <li><a href="{% url 'rehgien_pro:dashboard_home'%}">Dashboard</a></li>
                       {% endif %}
                       <li><a href="{% url 'profiles:account_settings'%}">Account Settings</a></li>
-                      <li><a href="{% url 'homepage' %}">Go to Rehgien</a></li>
+                      <li><a href="{% url 'homepage' %}">Go to Homey</a></li>
                       <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
                     </ul>
                 </div>
@@ -260,7 +260,7 @@
             </div>
             <div class="brand-logo center Mnav-logoWrapper">
               <a href="{% url 'rehgien_pro:rehgien_pro_homepage'%}">
-                <img src="{% static 'img/RehgienProLogo.png'%}" alt="rehgien pro logo">
+                <img src="{% static 'img/RehgienProLogo.png'%}" alt="Homey pro logo">
               </a>
             </div>
       </li>
@@ -286,7 +286,7 @@
           </ul>
         </div>
       </li>
-      <li><a href="{% url 'homepage'%}"><p><i class="material-icons">weekend</i>Rehgien Home</p></a></li>
+      <li><a href="{% url 'homepage'%}"><p><i class="material-icons">weekend</i>Homey Home</p></a></li>
       <li class="active">
         <div class="collapsible-header  Mnav-collapsible-header"><p><i class="material-icons">upgrade</i>Are you a pro?</p><span class="material-icons">expand_more</span></div>
         <div class="collapsible-body Mnav-collapsible-body">
@@ -313,9 +313,9 @@ $(document).ready(function(){
         $('#ac-dropdown').css('display','none')
     });
 
-    const black_logo =  "{% static 'img/RehgienProLogo.png'%}";
+    const black_logo =  "{% static 'img/RehgienLogoBlack.png'%}";
 
-    const white_logo = "{% static 'img/RehgienProLogoW.png'%}";
+    const white_logo = "{% static 'img/RehgienLogoW.png'%}";
 
     $(window).scroll(function() {
       if($(this).scrollTop() > 1) {

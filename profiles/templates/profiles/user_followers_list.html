@@ -1,5 +1,5 @@
 {% extends 'base1.html' %}
-{% block title %} <title>My followers and following @{{request.user.username}} | Rehgien</title>{% endblock %}
+{% block title %} <title>My followers and following @{{request.user.username}} | Homey</title>{% endblock %}
 {% load static %}
 {% block content %}
 
@@ -144,7 +144,7 @@
                     It appears you are not following any pros yet.
                     Pros you follow will appear here.<br>
                     You can find pros to follow in the Pro finder section. <br>
-                    Learn more about who followers are on rehgien by <a href="#"><u>Clicking here.</u></a>
+                    Learn more about who followers are on Homey by <a href="#"><u>Clicking here.</u></a>
                   </div>
               {% endif %}
             </div>
@@ -215,13 +215,13 @@
                   <div class="_connectionsEmpty">
                     It appears you don't have any followers yet.
                     Clients or pros who follow you will appear here.<br>
-                    Learn more about who followers are on rehgien by <a href="#"><u>Clicking here.</u></a>
+                    Learn more about who followers are on Homey by <a href="#"><u>Clicking here.</u></a>
                   </div>
               {% endif %}
             {% else %}
                 <div class="_connectionsEmpty">
                   Only pros are allowed to have followers.<br>
-                  Learn more about who followers are on rehgien by <a href="#"><u>Clicking here.</u></a>
+                  Learn more about who followers are on Homey by <a href="#"><u>Clicking here.</u></a>
                 </div>
             {% endif %}
           </div>
