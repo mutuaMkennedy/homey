@@ -1,6 +1,6 @@
 {% extends 'pro_base.html' %}
 {% load static %}
-{% block head_title %}<title>Find customers|Rehgien Pro</title>{% endblock %}
+{% block head_title %}<title>Find customers|Homey Pro</title>{% endblock %}
 {% block header%}{% include 'pro_header2.html' %}{% endblock %}
 {% block content %}
 <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -151,7 +151,7 @@
                                     </div>
                                     <div class="userDtls">
                                       <h5>{{job.job_poster.username}}</h5>
-                                      <h6>{% if job.job_poster.user_type == 'PRO' %}Rehgien pro {% else %} Rehgien user{% endif %}</h6>
+                                      <h6>{% if job.job_poster.user_type == 'PRO' %}Homey pro {% else %} Homey user{% endif %}</h6>
                                     </div>
                                   </div>
                                   <div class="jbLs_Hd_right">

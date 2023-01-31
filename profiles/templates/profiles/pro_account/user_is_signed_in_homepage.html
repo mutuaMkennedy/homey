@@ -1,7 +1,7 @@
 {% extends 'base1.html' %}
 {% load static %}
 {%load cloudinary %}
-{% block title %} <title>Rehgien | Find any property service,find property & home professionals</title>{% endblock %}
+{% block title %} <title>Homey | Find any property service,find property & home professionals</title>{% endblock %}
 {% block content %}
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script type="text/javascript">
@@ -149,14 +149,14 @@
                         </li>
                       </ul>
                     </div>
-                    <p class="copyrightSmbs">Rehgien Inc 	&copy  {% now "Y"  %}. All rights reserved</p>
+                    <p class="copyrightSmbs">Homey Inc 	&copy  {% now "Y"  %}. All rights reserved</p>
                   </div>
               </div>
             </div>
             <div class="col s12 md9 l9 xl9">
               <div class="usrLgnIn-MainFeedBox">
                 <div class="mnHrUsryWelcomText">
-                  <h3>Welcome to Rehgien, {{request.user.username}}!</h3>
+                  <h3>Welcome to Homey, {{request.user.username}}!</h3>
                 </div>
                 <div class="usrLgnIn-MainFeedContFlow">
                   <div class="usrLgnIn-MainFeedContsCTN">
@@ -239,7 +239,7 @@
                             {% else %}
                               <div class="usrJbPstINCardHmrEmptyRslts">
                                 <h6>A simple way to get the service you need</h6>
-                                <p>A job post on rehgien is a simple powerfull way to match you to service providers.</p>
+                                <p>A job post on Homey is a simple powerfull way to match you to service providers.</p>
                                 <a href="{% url 'markets:job_post_create' %}"><button type="button" name="button">Post a Job</button></a>
                                 <a href="{% url 'markets:job_post_home' %}"><span>Or, Learn how it works</span></a>
                               </div>

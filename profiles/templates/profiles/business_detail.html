@@ -2,7 +2,7 @@
 {% load static %}
 {% load cloudinary %}
 {% load embed_video_tags %}
-{% block title %} <title>{{business.business_name}} | Rehgien</title>{% endblock %}
+{% block title %} <title>{{business.business_name}} | Homey</title>{% endblock %}
 {% block content %}
 {% load profiles_extra_tags %}
 <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -373,7 +373,7 @@
               {% endif %}
               <ul>
                 {% comment 'excluded untill this feature is fuly supported '%}<li><b>Licenses & Certifications:</b><br><a href="#">See all</a></li>{% endcomment %}
-                <li><b>Rehgien Member since:</b><br>{{business.member_since.date}}</li>
+                <li><b>Homey Member since:</b><br>{{business.member_since.date}}</li>
                 {% if not business.linkedin_page_link and not business.facebook_page_link and not business.twitter_page_link and not business.instagram_page_link %}
                 {% else %}
                 <li class="social-btns"><b>Follow our socials:</b><br>
@@ -1082,7 +1082,7 @@
                   </div>
                   <div class="_ag-cns-Dtls">
                       <h5>{% if review.reviewer.get_full_name %}{{review.reviewer.get_full_name}} {% else %} {{review.reviewer.username}}{% endif %}</h5>
-                      <h6>{% if review.reviewer.user_type == 'CLIENT' %}Rehgien User {%else%}Rehgien Pro{%endif%}</h6>
+                      <h6>{% if review.reviewer.user_type == 'CLIENT' %}Homey User {%else%}Homey Pro{%endif%}</h6>
                   </div>
                   <div class="_ag-cns-Cta">
                     <button type="button" name="button">
@@ -1117,7 +1117,7 @@
              <div>
                This pro and their connections below have a professional relationship.
                They consist of professionals they know or work with and are listed here only for the purpose of their mutual
-               endorsement in the Rehgien pro directories.
+               endorsement in the Homey pro directories.
                <a href="#">Learn More</a>
              </div>
            </div>

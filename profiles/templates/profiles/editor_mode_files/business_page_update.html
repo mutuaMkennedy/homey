@@ -1,7 +1,7 @@
 {% extends 'base1.html' %}
 {% load static %}
 {% load cloudinary %}
-{% block title %}<title>{{request.user.pro_business_profile.business_name}} | Rehgien</title>{% endblock %}
+{% block title %}<title>{{request.user.pro_business_profile.business_name}} | Homey</title>{% endblock %}
 {% block content %}
 {% load leaflet_tags %}
 {% leaflet_js plugins="forms" %}
@@ -238,7 +238,7 @@
                         </div>
                         <div class="_ag-cns-Dtls">
                             <h5>{% if review.reviewer.get_full_name %}{{review.reviewer.get_full_name}} {% else %} {{review.reviewer.username}}{% endif %}</h5>
-                            <h6>{% if review.reviewer.user_type == 'CLIENT' %}Rehgien User {%else%}Rehgien Pro{%endif%}</h6>
+                            <h6>{% if review.reviewer.user_type == 'CLIENT' %}Homey User {%else%}Homey Pro{%endif%}</h6>
                         </div>
                         <div class="_ag-cns-Cta">
                           <button type="button" name="button">
@@ -1338,7 +1338,7 @@
         {
           element: document.querySelector('.bsProfEdSTEP6'),
           title: 'Service areas',
-          intro: "<img src='" + "{% static 'img/guideLocation.svg'%}" +"' alt='Navbar'> Service areas are the regions or cities where your business offers it services. Add areas applicable to you and have clients in those areas find you on Rehgien. <br><br> Click the blinking pen icon to add/update your service areas.",
+          intro: "<img src='" + "{% static 'img/guideLocation.svg'%}" +"' alt='Navbar'> Service areas are the regions or cities where your business offers it services. Add areas applicable to you and have clients in those areas find you on Homey. <br><br> Click the blinking pen icon to add/update your service areas.",
           position: 'left'
         },
         {
